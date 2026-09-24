@@ -1,0 +1,14 @@
+{
+  "name": "syntax-substance-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A maintainable static science and technology blog powered by Eleventy.",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "clean": "eleventy --clean"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

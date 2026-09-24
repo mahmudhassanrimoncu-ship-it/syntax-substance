@@ -1,0 +1,61 @@
+---
+layout: layout.njk
+permalink: /
+---
+<main id="top">
+  <section class="hero container">
+    <div class="hero-copy">
+      <p class="eyebrow">MATHEMATICS · SCIENCE · TECHNOLOGY</p>
+      <h1>Ideas worth<br /><span>thinking about.</span></h1>
+      <p class="hero-text">
+        Clear notes, explanations, experiments, and technical deep-dives—written for curious minds.
+      </p>
+      <a class="text-link" href="#articles">Read the articles →</a>
+    </div>
+    <div class="hero-equation" aria-label="Decorative mathematical equation">
+      $$\int_0^\infty e^{-x^2}\,dx = \frac{\sqrt{\pi}}{2}$$
+    </div>
+  </section>
+
+  <section id="articles" class="container articles-section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">THE NOTEBOOK</p>
+        <h2>Latest writing</h2>
+      </div>
+      <div class="controls">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search articles..." autocomplete="off" />
+        </label>
+      </div>
+    </div>
+
+    <div id="articleGrid" class="article-grid">
+      {% for post in collections.posts %}
+        <article class="article-card" data-title="{{ post.data.title }}" data-tags="{{ post.data.tags | join(' ') }}" data-category="{{ post.data.category }}">
+          <div class="card-meta">
+            <span>{{ post.data.category }}</span>
+            <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+          </div>
+          <h3>{{ post.data.title }}</h3>
+          <p>{{ post.data.description }}</p>
+          <a href="{{ post.url }}" class="card-link">Read article →</a>
+        </article>
+      {% endfor %}
+    </div>
+
+    <p id="emptyState" class="empty-state" hidden>No articles match your search.</p>
+  </section>
+
+  <section class="container about-section">
+    <div>
+      <p class="eyebrow">ABOUT</p>
+      <h2>A small place for big ideas.</h2>
+    </div>
+    <p>
+      A simple home for mathematical notes, scientific explanations, programming ideas,
+      experiments, and technical writing. The archive is generated automatically from Markdown posts.
+    </p>
+  </section>
+</main>
